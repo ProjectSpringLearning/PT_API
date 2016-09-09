@@ -1,0 +1,25 @@
+
+.doCenter{
+	margin-top:60px;
+	width:30%;
+	margin: 0 auto;
+	border: 0 auto;
+	padding: 0;
+	background-color: #067179;	
+}
+.text{
+	text-align: center;
+	color:red;
+	text-transform: capitalize;
+	
+}
+input{
+	margin-left:3%;
+	background-color: white;
+	width: 90%;
+}
+td{
+	float: left;
+font-size: 20px;
+color: black;
+}
