@@ -24,31 +24,34 @@ public class AjaxAuthenticationSuccessHandler implements  AuthenticationSuccessH
 		response.getWriter().println(determineTargetUrl(auth));
 		response.getWriter().flush();
 	}
-	/*
-	 * This method extracts the roles of currently logged-in user and returns
+	
+	/* This method extracts the roles of currently logged-in user and returns
 	 * appropriate URL according to his/her role.
 	 */
+	 
 	private String determineTargetUrl(Authentication authentication) {
-
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-
 		List<String> roles = new ArrayList<String>();
-
-		for (GrantedAuthority authority : authorities) {
+		for (GrantedAuthority authority : authorities) 
+		{
 			System.out.println(authority.getAuthority());
 			roles.add(authority.getAuthority());
 			System.out.println("Extract Role: " + authority.getAuthority());
 		}
-		if (roles.contains("ROLE_DEVELOPER")) {
-			return "developer";
+		/*
+		 *DEVELOPER RETURN TO WEB SERVICE API
+		 */
+		if (roles.contains("ROLE_DEVELOPER"))
+		{
+			return "/test";
 		}else{
 			return "accessDenied";
 		}
 
 	}
 	
-	/*// Get API User from HttpSession
-	private APIUser getAPIUser(){
+	// Get API User from HttpSession
+/*	private APIUser getAPIUser(){
 		Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
 		APIUser user = (APIUser) authentication.getPrincipal();
 		return user;

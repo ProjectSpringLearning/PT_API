@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 
 @Component("ajaxAuthenticationFailureHandler")
 public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHandler {
-
 	@Override
-	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException auth)
-			throws IOException, ServletException {
+	public void onAuthenticationFailure(HttpServletRequest request, 
+																		HttpServletResponse response,
+																		AuthenticationException auth)
+																		throws IOException, ServletException {
 		
 		System.out.println("AUTH "+ auth);
 		response.getWriter().println(auth.getMessage());
 		response.getWriter().flush();
 	}
-
 }

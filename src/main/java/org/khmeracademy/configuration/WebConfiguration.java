@@ -3,6 +3,7 @@ package org.khmeracademy.configuration;
 import javax.sql.DataSource;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @EnableAutoConfiguration
 @Configuration
+@MapperScan("org.khmeracademy.repositories")
 @PropertySource(value={"classpath:configuration.properties"})
 public class WebConfiguration extends WebMvcConfigurerAdapter{
 	@Autowired
